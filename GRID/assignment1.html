@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exact Layout</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Georgia, serif;
+        background: #f3dec4;
+    }
+
+    header {
+        background: #f3dec4;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        padding: 30px 0;
+        border-bottom: 8px solid #ffffff;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr;  
+        background: #f3dec4;
+        border-bottom: 8px solid #ffffff;
+    }
+
+    .aside {
+        background: #f7e7cf;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 40px;
+        font-weight: bold;
+        height: 600px;
+        border-right: 8px solid #ffffff;
+    }
+
+    .box {
+        background: #e2c6a7;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 28px;
+        font-weight: bold;
+        height: 600px;
+        border-right: 8px solid #ffffff;
+    }
+
+    .box:last-child {
+        border-right: none;
+    }
+
+    footer {
+        background: #f3dec4;
+        text-align: center;
+        font-size: 42px;
+        font-weight: 700;
+        padding: 40px 0;
+        border-top: 8px solid #ffffff;
+    }
+
+    @media(max-width: 768px){
+        .layout {
+            grid-template-columns: 1fr;
+        }
+
+        .aside, .box {
+            height: 200px;
+            border-right: none;
+            border-bottom: 8px solid #ffffff;
+        }
+
+        .box:last-child {
+            border-bottom: none;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>Hello World!</header>
+
+<div class="layout">
+    <div class="aside">Aside</div>
+    <div class="box">box1</div>
+    <div class="box">box2</div>
+    <div class="box">box3</div>
+    <div class="box">box4</div>
+</div>
+
+<footer>Footer</footer>
+
+</body>
+</html>

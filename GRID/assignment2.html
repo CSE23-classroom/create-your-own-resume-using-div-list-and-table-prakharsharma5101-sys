@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #fff;
+    }
+
+    /* Common Section Style */
+    .section {
+        background: #d3d3d3;
+        padding: 40px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+        border-bottom: 4px solid #f5e6d3;
+    }
+
+    /* Boxes container */
+    .boxes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+    }
+
+    /* Individual Box */
+    .box {
+        background: #9d9d9d;
+        height: 250px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        font-weight: bold;
+        border-right: 4px solid #f5e6d3;
+        border-bottom: 4px solid #f5e6d3;
+    }
+
+    .box:last-child {
+        border-right: none;
+    }
+
+    /* Responsive for Mobiles */
+    @media (max-width: 768px) {
+        .boxes {
+            grid-template-columns: 1fr;
+        }
+        .box {
+            border-right: none;
+            border-bottom: 4px solid #f5e6d3;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+    <div class="section">Logo</div>
+    <div class="section">Header</div>
+    <div class="section">Text Area</div>
+
+    <div class="boxes">
+        <div class="box">Box1</div>
+        <div class="box">Box2</div>
+        <div class="box">Box3</div>
+    </div>
+
+    <div class="section">Footer</div>
+
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Grid Layout - Logo / Sidebar / Banner / Body / Footer</title>
+<style>
+  :root{
+    --sidebar-width: 220px;
+    --gap: 10px;
+    --light: #d7d7d7;
+    --dark-brown: #3b1d1d;
+    --page-bg: #fff;
+  }
+
+  *{box-sizing: border-box}
+  body{
+    margin:0;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--page-bg);
+    color:#111;
+  }
+
+  .page {
+    display: grid;
+    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-areas:
+      "logo logo"
+      "sidebar main"
+      "footer footer";
+    gap: 12px;
+    min-height: 100vh;
+  }
+
+  .logo {
+    grid-area: logo;
+    background: var(--light);
+    padding: 14px 18px;
+    text-align: center;
+    font-weight: 700;
+    border-bottom: 4px solid #eee;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+    background: #fff;
+    padding: 18px;
+    border-right: 6px solid #f2f2f2; 
+    font-weight: 600;
+  }
+
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: minmax(180px, 1fr) minmax(180px, 1fr);
+    gap: 10px;
+    padding: 8px 12px;
+    align-content: start;
+  }
+
+  .banner, .content {
+    background: var(--dark-brown);
+    color: #100;
+    color: rgba(255,255,255,0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border: 6px solid #d9d9d9; 
+    box-shadow: inset 0 0 0 3px rgba(0,0,0,0.05);
+    padding: 40px 10px;
+  }
+
+  .banner {
+    border-bottom-width: 6px;
+  }
+
+  .content {
+    border-top-width: 6px;
+  }
+
+  .footer {
+    grid-area: footer;
+    background: var(--light);
+    padding: 12px 18px;
+    text-align: center;
+    font-weight: 700;
+    border-top: 4px solid #eee;
+  }
+
+  @media (max-width: 800px) {
+    .page{
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto auto;
+      grid-template-areas:
+        "logo"
+        "sidebar"  
+        "main"
+        "footer";
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .page {
+      grid-template-areas:
+        "logo"
+        "main"
+        "sidebar"
+        "footer";
+    }
+
+    .sidebar {
+      border-right: none;
+      border-left: none;
+      border-bottom: 4px solid #f0f0f0;
+      text-align: left;
+    }
+
+    .main {
+      grid-template-rows: auto auto; 
+      padding: 0;
+    }
+
+    .banner, .content {
+      padding: 28px 12px;
+      border-width: 6px;
+    }
+  }
+
+  @media (min-width: 1400px){
+    :root{ --sidebar-width: 260px; }
+    .banner, .content { padding: 60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <div class="logo">Logo</div>
+
+  <aside class="sidebar">
+    Side Bar Navigation
+  </aside>
+
+  <main class="main">
+    <section class="banner">Header / Banner</section>
+    <section class="content">Body Area</section>
+  </main>
+
+  <div class="footer">Footer</div>
+</div>
+
+</body>
+</html>
